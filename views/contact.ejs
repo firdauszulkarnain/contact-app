@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row mt-5 d-flex justify-content-center">
+        <div class="col-lg-10">
+            <div class="card">
+                <div class="card-body">
+                    <a href="/contact/add" class="btn btn-primary px-5 mb-4">Tambah Data</a>
+                    <% if (msg.length !== 0 ) { %>
+                        <div class="alert alert-success" role="alert">
+                            <%= msg  %>
+                        </div>
+                    <% } %>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>No. Telp</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% contacts.forEach((contact, index) => { %>
+                                <tr>
+                                    <td><%= index+1  %></td>
+                                    <td><%= contact.nama  %></td>
+                                    <td><%= contact.notelp  %></td>
+                                    <td><a href="/contact/<%= contact.nama %>" class="btn btn-sm btn-warning">Detail</a></td>
+                               </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
